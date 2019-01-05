@@ -1,10 +1,10 @@
 # Docker Volumes
 
-## lab 1 
+## Lab 1 
 
 ### Creating Volume Mount from **Dockerfile**
 
-- Create a file with name volume and paste the following content to it:
+Create a file with name volume and paste the following content to it:
 
 ```
 FROM ubuntu:latest
@@ -14,7 +14,7 @@ RUN echo "Hello from Volume" > test
 VOLUME /data
 ```
 
-- Execute the following commands:
+Execute the following commands:
 
 ```
 docker build -f volume -t sagarj/volume:1 .
@@ -34,11 +34,11 @@ cd ./_data
 cat test 
 ```
 
-## lab 2 
+## Lab 2 
 
 ### Managing volumes through Docker CLI
 
-- Execute the following commands:
+Execute the following commands:
 
 ```
 docker volume create demo
@@ -50,11 +50,11 @@ docker inspect demo
 docker volume rm demo
 ```
 
-## lab 3 
+## Lab 3 
 
 ### Creating Volume Mount from **docker run** command & sharing same Volume Mounts among multiple containers
 
-- Create a file with name volume_test and paste the following content:
+Create a file with name volume_test and paste the following content:
 
 ```
 FROM ubuntu:latest
@@ -65,7 +65,7 @@ WORKDIR /data
 ENTRYPOINT echo ${MESSAGE} > ${FILENAME} && ls
 ```
 
-- Execute following commands:
+Execute following commands:
 
 ```
 docker build -f volume_test -t sagarj/volume_test:1 .
@@ -89,11 +89,11 @@ cat morning_message &&  cat afternoon_message
 
 # Bind Mounts:
 
-## lab 4 
+## Lab 4 
 
 ### Mounting host directory into container
 
-- Execute the following commands:
+Execute the following commands:
 
 ```
 mkdir test
