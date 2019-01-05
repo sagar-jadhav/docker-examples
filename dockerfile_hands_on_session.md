@@ -13,10 +13,10 @@ FROM <image>[:<tag>] [AS <name>]
 
 ### Lab 1
 
-Create a file with name from and paste the following content into it:
+Create a file with name **from** and paste the following content into it:
 
 ```
-ARG  CODE_VERSION=latest
+ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 ```
 
@@ -39,10 +39,10 @@ RUN ["executable", "param1", "param2"]
 
 ### Lab 2
 
-Create a file with name run and paste the following content into it:
+Create a file with name **run** and paste the following content into it:
 
 ```
-ARG  CODE_VERSION=latest
+ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 RUN echo hello from shellform
 RUN [“echo”, “hello from execform”]
@@ -68,10 +68,10 @@ CMD ["executable","param1","param2"]
 
 ### Lab 3:
 
-Create a file with name cmd and paste the following content into it:
+Create a file with name **cmd** and paste the following content into it:
 
 ```
-ARG  CODE_VERSION=latest
+ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 CMD echo hello
 ```
@@ -94,10 +94,10 @@ LABEL <key>=<value> <key>=<value> <key>=<value> ...
 
 ### Lab 4
 
-Create a file with name label and paste the following content into it:
+Create a file with name **label** and paste the following content into it:
 
 ```
-ARG  CODE_VERSION=latest
+ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 LABEL AUTHOR=“SAGAR JADHAV”
 ```
@@ -122,10 +122,10 @@ EXPOSE <port> [<port>/<protocol>...]
 
 ### Lab 5
 
-Create a file with name expose and paste the following content into it:
+Create a file with name **expose** and paste the following content into it:
 
 ```
-ARG  CODE_VERSION=latest
+ARG CODE_VERSION=latest
 FROM tomcat:${CODE_VERSION}
 EXPOSE 8080
 ```
@@ -150,10 +150,10 @@ ENV <key>=<value> ...
 
 ### Lab 6
 
-Create a file with name expose and paste the following content into it:
+Create a file with name **env** and paste the following content into it:
 
 ```
-ARG  CODE_VERSION=latest
+ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 ENV NAME=SAGAR
 RUN echo ${NAME}
@@ -172,7 +172,7 @@ docker run --env NAME=SUNNY sagarj/env:1
 docker inspect sagarj/env:1
 ```
 
-## ADD & COPY:
+## ADD & COPY
 
 ```
 ADD [--chown=<user>:<group>] <src>... <dest>
@@ -188,10 +188,10 @@ COPY [--chown=<user>:<group>] ["<src>",... "<dest>"]
 
 ### Lab 7
 
-Create a file with name addcopy and paste the following content into it:
+Create a file with name **addcopy** and paste the following content into it:
 
 ```
-ARG  CODE_VERSION=latest
+ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 COPY ./copy/test_copy /
 ADD ./add/test_add /
@@ -227,10 +227,10 @@ ENTRYPOINT command param1 param2 (shell form)
 
 ### Lab 8
 
-- Create a file with name entrypoint and paste the following content into it:
+- Create a file with name **entrypoint** and paste the following content into it:
 
 ```
-ARG  CODE_VERSION=latest
+ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 ENTRYPOINT [“echo”, “hello”]
 ```
@@ -253,10 +253,10 @@ WORKDIR /path/to/workdir
 
 ### Lab 9
 
-- Create a file with name workdir and paste the following content into it:
+- Create a file with name **workdir** and paste the following content into it:
 
 ```
-ARG  CODE_VERSION=latest
+ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 WORKDIR /data
 RUN echo “hello” > test
