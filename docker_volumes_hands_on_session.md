@@ -1,6 +1,8 @@
 # Docker Volumes
 
-## LAB 1: Learn how to create a Volume Mount from Dockerfile
+## lab 1 
+
+### Creating Volume Mount from **Dockerfile**
 
 - Create a file with name volume and paste the following content to it:
 
@@ -32,7 +34,9 @@ cd ./_data
 cat test 
 ```
 
-## LAB 2: Learn how to manager Volumes
+## lab 2 
+
+### Managing volumes through Docker CLI
 
 - Execute the following commands:
 
@@ -46,7 +50,9 @@ docker inspect demo
 docker volume rm demo
 ```
 
-## LAB 3: Learn how to create a Volume mount from docker run command and how to share the Volume mounts among multiple containers
+## lab 3 
+
+### Creating Volume Mount from **docker run** command & sharing same Volume Mounts among multiple containers
 
 - Create a file with name volume_test and paste the following content:
 
@@ -83,7 +89,9 @@ cat morning_message &&  cat afternoon_message
 
 # Bind Mounts:
 
-## Lab 4: Mounting host directory into container
+## lab 4 
+
+### Mounting host directory into container
 
 - Execute the following commands:
 
