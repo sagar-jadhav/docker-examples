@@ -10,7 +10,7 @@ FROM <image>[:<tag>] [AS <name>]
 2. A valid Dockerfile must start from a FROM instruction.
 3. ARG is the only instruction that precedes the FROM instruction.
 
-LAB:
+LAB 1:
 
 1. Create a file with name from and paste the following content into it:
 
@@ -32,7 +32,7 @@ RUN ["executable", "param1", "param2"]
 
 1. It will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.
 
-LAB:
+LAB 2:
 
 1. Create a file with name run and paste the following content into it:
 
@@ -57,7 +57,7 @@ CMD ["executable","param1","param2"]
 1. There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only the last CMD will take effect.
 2. The main purpose of a CMD is to provide defaults for an executing container.
 
-LAB:
+LAB 3:
 
 1. Create a file with name cmd and paste the following content into it:
 
@@ -80,7 +80,7 @@ LABEL <key>=<value> <key>=<value> <key>=<value> ...
 1. The LABEL instruction adds metadata to an image. A LABEL is a key-value pair.
 2. docker inspect command is used to view the label’s
 
-LAB:
+LAB 4:
 
 1. Create a file with name label and paste the following content into it:
 
@@ -104,7 +104,7 @@ EXPOSE <port> [<port>/<protocol>...]
 2. The EXPOSE instruction does not actually publish the port. It functions as a type of documentation between the person who builds the image and the person who runs the container, about which ports are intended to be published
 3. To actually publish the port when running the container, use the -p flag on docker run
 
-LAB:
+LAB 5:
 
 1. Create a file with name expose and paste the following content into it:
 
@@ -128,7 +128,7 @@ ENV <key>=<value> ...
 1. The ENV instruction sets the environment variable <key> to the value <value>. This value will be in the environment for all subsequent instructions in the build stage.
 2. The environment variables set using ENV will persist when a container is run from the resulting image.
 
-LAB:
+LAB 6:
 
 1.Create a file with name expose and paste the following content into it:
 
@@ -162,7 +162,7 @@ COPY [--chown=<user>:<group>] ["<src>",... "<dest>"]
 2. COPY takes in a src and destination. It only lets you copy in a local file or directory from your host (the machine building the Docker image) into the Docker image itself.
 3. ADD lets you do that too, but it also supports 2 other sources. First, you can use a URL instead of a local file / directory. Secondly, you can extract a tar file from the source directly into the destination.
 
-LAB:
+LAB 7:
 
 1. Create a file with name addcopy and paste the following content into it:
 
@@ -197,7 +197,7 @@ ENTRYPOINT command param1 param2 (shell form)
 
 1. An ENTRYPOINT allows you to configure a container that will run as an executable.
 
-LAB:
+LAB 8:
 
 1. Create a file with name entrypoint and paste the following content into it:
 
@@ -219,7 +219,7 @@ WORKDIR /path/to/workdir
 
 1. The WORKDIR instruction sets the working directory for any RUN, CMD, ENTRYPOINT, COPY and ADD instructions that follow it in the Dockerfile. If the WORKDIR doesn’t exist, it will be created even if it’s not used in any subsequent Dockerfile instruction.
 
-LAB:
+LAB 9:
 
 1. Create a file with name workdir and paste the following content into it:
 
