@@ -1,4 +1,4 @@
-# Docker Networking
+# Bridge Network
 
 ## Managing Network
 
