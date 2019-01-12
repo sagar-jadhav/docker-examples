@@ -45,7 +45,7 @@ Create a file with name **run** and paste the following content into it:
 ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 RUN echo hello from shellform
-RUN [“echo”, “hello from execform”]
+RUN ["echo", "hello from execform"]
 ```
 
 Execute the following commands:
@@ -99,7 +99,7 @@ Create a file with name **label** and paste the following content into it:
 ```
 ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
-LABEL AUTHOR=“SAGAR JADHAV”
+LABEL AUTHOR="SAGAR JADHAV"
 ```
 
 Execute the following commands:
@@ -204,11 +204,11 @@ Execute the following commands:
 ```
 mkdir add
 cd ./add
-echo “HELLO ADD” > test_add
+echo "HELLO ADD" > test_add
 cd ..
 mkdir copy
 cd ./copy
-echo “HELLO COPY” > test_copy
+echo "HELLO COPY" > test_copy
 cd ..
 
 docker build -f addcopy -t sagarj/addcopy:1 .
@@ -232,7 +232,7 @@ ENTRYPOINT command param1 param2 (shell form)
 ```
 ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
-ENTRYPOINT [“echo”, “hello”]
+ENTRYPOINT ["echo", "hello"]
 ```
 
 - Execute the following commands:
@@ -259,8 +259,8 @@ WORKDIR /path/to/workdir
 ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 WORKDIR /data
-RUN echo “hello” > test
-ENTRYPOINT [“cat”, “test”]
+RUN echo "hello" > test
+ENTRYPOINT ["cat", "test"]
 ```
 
 - Execute the following commands:
