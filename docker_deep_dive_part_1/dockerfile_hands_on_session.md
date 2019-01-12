@@ -23,7 +23,7 @@ FROM ubuntu:${CODE_VERSION}
 Execute following commands:
 
 ```
-docker build -f from -t sagar/from:1 .
+docker build -f from -t sagarj/from:1 .
 
 docker run sagarj/from:1 
 ```
@@ -51,7 +51,7 @@ RUN [“echo”, “hello from execform”]
 Execute the following commands:
 
 ```
-docker build -f from -t sagarj/run:1 .
+docker build -f run -t sagarj/run:1 .
 
 docker run sagarj/run:1 
 ```
