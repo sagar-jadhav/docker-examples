@@ -14,4 +14,5 @@ Docker Tutorials project contains Session PPT's & Lab sessions of Docker Series 
    - [Lab Session for Docker File](docker_deep_dive_part_1/dockerfile_hands_on_session.md)
    - [Lab Session for Docker Networking](docker_deep_dive_part_1/docker_networking_hands_on_session.md)
    - [Lab Session for Docker Volumes](docker_deep_dive_part_1/docker_volumes_hands_on_session.md)
+   - [Lab Session for Wordpress Setup With Multiple Containers](docker_deep_dive_part_1/Deploy_Wordpress_With_Multiple_Container.md)
 
