@@ -8,7 +8,7 @@ Docker Tutorials project contains Session PPT's & Lab sessions of Docker Series 
 ## Docker for beginners 
    - [Session PPT](docker_for_beginner/docker_for_beginners.pdf)
    - [Lab Session (Basics)](docker_for_beginner/docker_for_beginners_hands_on_session_commands.md)
-   - [Lab Session for Build Docker Image From A Running Container](docker_for_beginner/build_docker_image_from_a_running_container.md)
+   - [Lab Session - Building docker from running container](docker_for_beginner/build_docker_image_from_a_running_container.md)
 
 ## Docker deep dive (Part-1)
    - [Session PPT](docker_deep_dive_part_1/docker_deep_dive_part_1.pdf)
