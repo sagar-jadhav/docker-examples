@@ -45,7 +45,7 @@ Create a file with name **run** and paste the following content into it:
 ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 RUN echo hello from shellform
-RUN [“echo”, “hello from execform”]
+RUN ["echo", "hello from execform"]
 ```
 
 Execute the following commands:
@@ -78,7 +78,7 @@ CMD echo hello
 Execute the following commands:
 
 ```
-docker build -f from -t sagarj/cmd:1 .
+docker build -f cmd -t sagarj/cmd:1 .
 
 docker run sagarj/cmd:1 
 ```
@@ -99,13 +99,13 @@ Create a file with name **label** and paste the following content into it:
 ```
 ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
-LABEL AUTHOR=“SAGAR JADHAV”
+LABEL AUTHOR="SAGAR JADHAV"
 ```
 
 Execute the following commands:
 
 ```
-docker build -f from -t sagarj/label:1 .
+docker build -f label -t sagarj/label:1 .
 
 docker inspect sagarj/label:1
 ```
@@ -133,7 +133,7 @@ EXPOSE 8080
 Execute the following commands:
 
 ```
-docker build -f from -t sagarj/expose:1 .
+docker build -f expose -t sagarj/expose:1 .
 
 docker inspect sagarj/expose:1
 ```
@@ -163,7 +163,7 @@ CMD echo ${NAME}
 Execute the following commands:
 
 ```
-docker build -f from -t sagarj/env:1 .
+docker build -f env -t sagarj/env:1 .
 
 docker run sagarj/env:1
 
@@ -196,7 +196,7 @@ FROM ubuntu:${CODE_VERSION}
 COPY ./copy/test_copy /
 ADD ./add/test_add /
 ADD https://golang.org/doc/install?download=go1.11.4.linux-amd64.tar.gz /
-CMD cat test_copy && test_add && ls
+CMD cat test_copy && cat test_add && ls
 ```
 
 Execute the following commands:
@@ -204,14 +204,14 @@ Execute the following commands:
 ```
 mkdir add
 cd ./add
-echo “HELLO ADD” > test_add
+echo "HELLO ADD" > test_add
 cd ..
 mkdir copy
 cd ./copy
-echo “HELLO COPY” > test_copy
+echo "HELLO COPY" > test_copy
 cd ..
 
-docker build -f from -t sagarj/addcopy:1 .
+docker build -f addcopy -t sagarj/addcopy:1 .
 
 docker run sagarj/addcopy:1
 ```
@@ -232,13 +232,13 @@ ENTRYPOINT command param1 param2 (shell form)
 ```
 ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
-ENTRYPOINT [“echo”, “hello”]
+ENTRYPOINT ["echo", "hello"]
 ```
 
 - Execute the following commands:
 
 ```
-docker build -f from -t sagarj/entrypoint:1 .
+docker build -f entrypoint -t sagarj/entrypoint:1 .
 
 docker run sagarj/entrypoint:1 
 ```
@@ -259,14 +259,14 @@ WORKDIR /path/to/workdir
 ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 WORKDIR /data
-RUN echo “hello” > test
-ENTRYPOINT [“cat”, “test”]
+RUN echo "hello" > test
+ENTRYPOINT ["cat", "test"]
 ```
 
 - Execute the following commands:
 
 ```
-docker build -f from -t sagarj/workdir:1 .
+docker build -f workdir -t sagarj/workdir:1 .
 
 docker run sagarj/workdir:1 
 ```
