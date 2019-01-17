@@ -30,7 +30,8 @@ Check that Weather our website(which is hosted with nginx on container) is worki
 ```
 wget http://localhost:8080
 ```
-If you get index.html file then it working and If you don't have **wget** command in your system then you can install it by below command .
+If you get index.html file then it working .<br/>
+If you don't have **wget** command in your system then you can install it by below command .
 ```
 apt-get install -y wget 
 ```
@@ -44,10 +45,10 @@ rm index.html
 ```
 
 ## Step 3 - Modify the Contents of Web Page 
-Now in this step we want to modify the content the contents of webpage 
+Now in this step we want to modify the content the contents of webpage<br/>
 So 1st we want to get the access of bash of Our Running container 
 * exec -- It is use to Run a command in a running container
-* it -- the -i (interactive) flag to keep stdin open and -t to allocate a terminal.
+* -it -- the -i (interactive) flag to keep stdin open and -t to allocate a terminal.
 * 093d97214496 -- it your nginx running container ID .
 * /bin/bash -- it is a command which you want to execute .
 ```
@@ -91,7 +92,7 @@ docker images
 ```
 
 ## Step 6 - Stop and Remove All Containers
-Now it time to stop your all running containers and we get all port free 
+Now it time to stop your all running containers and so we get all port free 
 * stop -- is use to stop the running container with that we provide the container ID
 * rm -- is use to remove the container with that we provide the container ID
 ```
@@ -114,4 +115,4 @@ To see the contents of **index.html** file
 ```
 cat index.html
 ```
-If you get **hello this for testing** then we did it .
+If you get **hello this for testing** then **we did it.**
