@@ -1,6 +1,6 @@
 # Build Docker Image From A Running Container
 
-Hello friends, In this lab session we are going to build the image from running container and for that we are going to use nginx image and run time we are going to modify the web contents and build the new nginx image with modify contents .
+In this lab session we are going to build the image from running container and for that we are going to use **nginx image** and run the image next we are going to modify the web contents and build the new **nginx image** with modify contents.
 
 ## Step 1 - Run the nginx container 
 Search the nginx offical image 
@@ -26,12 +26,12 @@ docker ps
 ```
 
 ## Step 2 - Check the web site is working or not
-Check that weather our website(which is hosted with nginx on container) is working or not for this we use the wget command who request our web page and download the index.html from our container . 
+Check that weather our website (which is hosted with nginx on docker container) is working or not for this we use the wget command who request our web page and download the index.html from our container. 
 ```
 wget http://localhost:8080
 ```
-If you get index.html file then it working .<br/>
-If you don't have **wget** command in your system then you can install it by below command .
+If you get index.html file then it is working .<br/>
+If you don't have **wget** command in your system then you can install it by below command.
 ```
 apt-get install -y wget 
 ```
@@ -45,8 +45,8 @@ rm index.html
 ```
 
 ## Step 3 - Modify the contents of web page 
-Now in this step we want to modify the content the contents of webpage<br/>
-So 1st we want to get the access of bash of Our Running container 
+Now in this step we want to modify the content webpage<br/>
+So first we want to get the access of bash of our running container 
 * exec -- it is use to Run a command in a running container
 * -it -- the -i (interactive) flag to keep stdin open and -t to allocate a terminal.
 * containerA -- it your nginx running container name .
@@ -55,14 +55,14 @@ So 1st we want to get the access of bash of Our Running container
 docker exec -it containerA /bin/bash
 ```
 
-When you getting running container terminal execute following command 
+When you get the running container terminal execute following command 
 ```
 echo 'hello this for testing' > /usr/share/nginx/html/index.html
 exit
 ```
 
 ## Step 4 - Check weather modify contents are display or not 
-Ok, Now in this step we can check weather we get our modify contents or not 
+Now in this step we can check weather we get our modify content or not 
 ```
 wget http://localhost:8080
 ```
@@ -99,7 +99,8 @@ Now it time to stop your all running containers and so we get all port free
 docker stop containerA
 docker rm containerA
 ```
-## Step 7 - Run new container with our created image
+
+## Step 7 - Run new container with newly created image
 In this step we are going to start new container with our new nginx image 
 ```
 docker run --name containerB -p 8080:80 -d nginx_modify:1
