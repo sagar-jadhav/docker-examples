@@ -11,6 +11,6 @@ Docker Tutorials project contains Session PPT's & Lab sessions of Docker Series 
     - [Lab Session for Docker Networking](docker_deep_dive_part_1/docker_networking_hands_on_session.md)
     - [Lab Session for Docker Volumes](docker_deep_dive_part_1/docker_volumes_hands_on_session.md)
   
-## Lab Sessions
-  - [Building docker image from running container](lab_sessions/build_docker_image_from_a_running_container.md)
-  - [Wordpress setup with multiple containers](lab_sessions/Deploy_Wordpress_With_Multiple_Container.md)
+## Lab sessions
+  1. [Building docker image from running container](lab_sessions/build_docker_image_from_a_running_container.md)
+  2. [Wordpress setup with multiple containers](lab_sessions/Deploy_Wordpress_With_Multiple_Container.md)
