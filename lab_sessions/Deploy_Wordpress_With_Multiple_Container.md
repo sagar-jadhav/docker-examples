@@ -1,5 +1,5 @@
 ## Deploy Wordpress With Multiple Container 
-In this section we deploy WordPress Website With Multiple Container
+In this section we are deploying WordPress Website With Multiple Containers
 
 Start off by making a new directory where you wish to store the files for WordPress and MariaDB for example in your home directory.
 ```
@@ -8,7 +8,7 @@ mkdir ~/wordpress && cd ~/wordpress
 
 ### Docker Setup For Database Server 
 
-Search Mariadb Image
+Search Mariadb image
 ```
 docker search mariadb
 ```
@@ -18,7 +18,7 @@ Pull mariadb docker image
 docker pull mariadb
 ```
 
-Run This Database Container 
+Run database container 
 * run -- use for run the container
 * -e -- for the env variable like in below command we use MYSQL_ROOT_PASSWORD env variable to assign password
 * –name wordpress -- Gives the container a name.
@@ -34,10 +34,9 @@ List running docker processes
 docker ps
 ```
 
-
 ### Docker Setup For Wordpress
 
-Search Wordpress Image
+Search Wordpress image
 ```
 docker search wordpress
 ```
@@ -47,7 +46,7 @@ Pull wordpress docker image
 docker pull wordpress
 ```
 
-Run This Wordpress Container
+Run Wordpress container
 * -e -- for the env variable like in below command we use WORDPRESS_DB_PASSWORD env variable to assign password
 * –name wordpress -- Gives the container a name.
 * –link wordpressdb:mysql -- Links the WordPress container with the MariaDB container so that the applications can interact.
@@ -63,4 +62,4 @@ List running docker processes
 ```
 docker ps
 ```
-Open Your Web Brower And Type "http://localhost:8080"
+Open Your Web Brower and browse **http://localhost:8080**
