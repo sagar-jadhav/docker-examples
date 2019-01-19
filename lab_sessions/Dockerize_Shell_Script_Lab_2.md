@@ -13,6 +13,14 @@ Before we start you should understand the our environment for this lab session .
 - host 2 (production server) :-
 	- containerA - database server (mariadb image)
 	- containerB - web server (wordpress image)
+Creating two host with **play with docker**
+1. Open **play with docker** 
+2. Click on **+ADD NEW INSTANCE**
+3. Host one is created 
+4. Click on one more time **+ADD NEW INSTANCE**
+5. Host two is created 
+6. Now you know the **IP** of both host 
+7. Go to the host two and execute the **passwd** command to change the password of root user and change password to **123** .
 
 ### Step1 - Create new directory **wordpress** at our both host system 
 Start off by making a new directory where you wish to store the files for WordPress and MariaDB for example in your home directory.
@@ -51,6 +59,7 @@ docker ps
 
 ### Step3 - Launch the container for web server (wordpress image) on host 1
 In this step we are going to launch the web server container using wordpress image <br/>
+
 Search Wordpress image
 ```
 docker search wordpress
@@ -106,6 +115,11 @@ fi
 sshpass -p"123" scp -o "StrictHostKeyChecking no" -r /wordpress/. root@192.168.0.21:/wordpress
 sshpass -p"123" ssh -o "StrictHostKeyChecking no" root@192.168.0.21 '/usr/local/bin/docker restart containerA && sleep 20 && /usr/local/bin/docker restart containerB'
 ```
+In above shell script we are going to use following commands
+1. sshpass - sshpass command is used to pass the password to ssh command 
+2. ssh - ssh is used to take the secure access of remote system 
+3. scp - scp is used to copy securly .
+4. sleep - sleep is command used for put our program in sleep mode .
 
 ### Step 6 :- Write the dockerfile 
 In this step we are going to write dockerfile file to build our image <br/>
@@ -119,6 +133,7 @@ RUN chmod u+x /deploy.sh
 RUN apt-get update && apt-get install ssh sshpass -y
 ENTRYPOINT ["/deploy.sh"]
 ```
+For more details [Lab Session for Docker File](../docker_deep_dive_part_1/dockerfile_hands_on_session.md)
 
 ### Step 7 :- Build the image using our dockerfile
 In this step we are going to build the image using dockerfile
