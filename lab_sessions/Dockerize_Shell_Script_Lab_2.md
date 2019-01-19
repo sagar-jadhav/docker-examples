@@ -36,7 +36,7 @@ Run database container
 * -d -- Tells Docker to run the container in daemon.
 * mariadb:latest -- name of image
 ```
-docker run -e MYSQL_ROOT_PASSWORD=root123 -e MYSQL_DATABASE=wordpress --name wordpressdb -v "$PWD/database":/var/lib/mysql -d mariadb:latest
+docker run -e MYSQL_ROOT_PASSWORD=root123 -e MYSQL_DATABASE=wordpress --name wordpressdb -v "/wordpress/database":/var/lib/mysql -d mariadb:latest
 ```
 
 List running docker processes 
@@ -65,7 +65,7 @@ Run Wordpress container
 * -d -- Makes the container run on background
 * wordpress -- name of image
 ```
-docker run -e WORDPRESS_DB_PASSWORD=root123 --name wordpress --link wordpressdb:mysql -p 8080:80 -v "$PWD/html":/var/www/html -d wordpress
+docker run -e WORDPRESS_DB_PASSWORD=root123 --name wordpress --link wordpressdb:mysql -p 8080:80 -v "/wordpress/html":/var/www/html -d wordpress
 ```
 
 List running docker processes
@@ -82,7 +82,6 @@ In the step we are going to write shell script for continuous deployment <br/>
 create file **deploy.sh** and copy below code in it and save it .
 ```
 #!/bin/bash
-scp -o "StrictHostKeyChecking no" -r /wordpress root@192.168.0.21:/wordpress
 ssh -o "StrictHostKeyChecking no" root@192.168.0.21 'if [ ! "$(/usr/local/bin/docker ps -q -f name=containerA)" ]; then
     if [ "$(/usr/local/bin/docker ps -aq -f status=exited -f name=containerA)" ]; then
         # cleanup
@@ -99,14 +98,28 @@ if [ ! "$(/usr/local/bin/docker ps -q -f name=containerB)" ]; then
     # run your container
     /usr/local/bin/docker run -e WORDPRESS_DB_PASSWORD=root123 --name containerB --link containerA:mysql -p 8080:80 -v "/wordpress/html":/var/www/html -d wordpress
 fi
-/usr/local/bin/docker restart containerA containerB
 '
+scp -o "StrictHostKeyChecking no" -r /wordpress/. root@192.168.0.21:/wordpress
+ssh -o "StrictHostKeyChecking no" root@192.168.0.21 '/usr/local/bin/docker restart containerA containerB'
 ```
 
 ### Step 6 :- Write the dockerfile 
+In this step we are going to write dockerfile file to build our image <br/>
+create file **dockerfile** and copy below code in it and save it .
 ```
+ARG CODE_VERSION=latest
+FROM ubuntu:${CODE_VERSION}
+COPY /deploy.sh /
+RUN chmod u+x /deploy.sh
+ENTRYPOINT ["/deploy.sh"]
 ```
 
 ### Step 7 :- Build the image using our dockerfile
-### Step 8 :- Run the container using our image 
+```
+docker build -f dockerfile -t Demo/LabTwo:1 . 
+```
+### Step 8 :- Run the container using our image
+```
+docker run Demo/LabTwo:1
+``` 
 ### Step 9 :- Go to the host 2 check it our changes is reflected or not
