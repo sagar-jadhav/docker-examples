@@ -1,4 +1,4 @@
-# Dockerize Shell Script Simple 
+# Dockerize Shell Script Lab 1 
 In this lab session we are going to dockerize shell script 
 ## Step 1 :- Write the simple shell script
 In this step we are going to write simple shell script which take run time arguments <br/> 
@@ -23,11 +23,11 @@ ENTRYPOINT ["/test.sh"]
 ## Step 3 :- Build the image using dockerfile
 In this step we are going to build the image using dockerfile 
 ```
-docker build -f dockerfile -t shell_script:1 . 
+docker build -f dockerfile -t Demo/LabOne:1 . 
 ```
 ## Step 4 :- Run the Container using our image which perform our particular task 
 In this step we are going to run the container using our image 
 ```
-docker run shell_script:1
-docker run -e FIRST=AKSHAY -e LAST=ITHAPE shell_script:1
+docker run Demo/LabOne:1
+docker run -e FIRST=AKSHAY -e LAST=ITHAPE Demo/LabOne:1
 ```
