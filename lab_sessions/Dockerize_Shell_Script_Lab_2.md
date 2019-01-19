@@ -1,5 +1,9 @@
 # Dockerize Shell Script Lab 2
 In this lab session we are going to do continuous deployment using shell script for that we build one image using dockerfile and launch the container with that image .<br/>
+**NOTE :- Practice this lab session only with play with docker because the commands may be change as per your environment**
+### Prerequisite
+1. Basic understanding the linux environment
+2. Basic knowledge of the wordpress 
 ### Our environment
 Before we start you should understand the our environment for this lab session . <br/>
 - host 1 (development server) :-
@@ -17,6 +21,7 @@ mkdir /wordpress && cd /wordpress
 ```
 
 ### Step2 - Launch the container for database server (mariadb image) on host 1
+In this step we are going to launch the database container using mariadb image <br/>
 
 Search Mariadb image
 ```
@@ -45,7 +50,7 @@ docker ps
 ```
 
 ### Step3 - Launch the container for web server (wordpress image) on host 1
-
+In this step we are going to launch the web server container using wordpress image <br/>
 Search Wordpress image
 ```
 docker search wordpress
@@ -74,8 +79,7 @@ docker ps
 ```
 
 ### Step 4 :- Setup wordpress 
-Open Your Web Brower and browse **http://localhost:8080** and setup wordpress . <br/>
-Or In **play with docker** on up side our open port show in blue color click on that and setup wordpress . 
+In **play with docker** on up side open port are show in blue color click on that and setup wordpress . 
 
 ### Step 5 :- Write the shell script for continuous deployment
 In the step we are going to write shell script for continuous deployment <br/>
@@ -110,18 +114,21 @@ create file **dockerfile** and copy below code in it and save it .
 ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
 ADD . /wordpress
-COPY /deploy.sh /
+COPY ./deploy.sh /
 RUN chmod u+x /deploy.sh
 RUN apt-get update && apt-get install ssh sshpass -y
 ENTRYPOINT ["/deploy.sh"]
 ```
 
 ### Step 7 :- Build the image using our dockerfile
+In this step we are going to build the image using dockerfile
 ```
-docker build -f dockerfile -t Demo/LabTwo:1 . 
+docker build -f dockerfile -t demo/labtwo:1 . 
 ```
 ### Step 8 :- Run the container using our image
+In this step we are going to run the container using our image
 ```
-docker run Demo/LabTwo:1
+docker run -v /wordpress:/wordpress demo/labtwo:2
 ``` 
 ### Step 9 :- Go to the host 2 check it our changes is reflected or not
+Go to host 2 in **play with docker** on up side open port are show in blue color click on that and check weather our changes is reflected or not .
