@@ -45,7 +45,7 @@ Run database container
 * run -- use for run the container
 * -e -- for the env variable like in below command we use MYSQL_ROOT_PASSWORD env variable to assign password
 * –name wordpress -- Gives the container a name.
-* -v “$PWD/database”:/var/lib/mysql -- Creates a data directory linked to the container storage to ensure data persistence.
+* -v “/wordpress/database”:/var/lib/mysql -- Creates a data directory linked to the container storage to ensure data persistence.
 * -d -- Tells Docker to run the container in daemon.
 * mariadb:latest -- name of image
 ```
@@ -75,7 +75,7 @@ Run Wordpress container
 * –name wordpress -- Gives the container a name.
 * –link wordpressdb:mysql -- Links the WordPress container with the MariaDB container so that the applications can interact.
 * -p 8080:80 -- Tells Docker to pass connections from your server’s HTTP port to the containers internal port 80.
-* -v “$PWD/html”:/var/www/html -- Sets the WordPress files accessible from outside the container. The volume files will remain even if the container was removed.
+* -v “/wordpress/html”:/var/www/html -- Sets the WordPress files accessible from outside the container. The volume files will remain even if the container was removed.
 * -d -- Makes the container run on background
 * wordpress -- name of image
 ```
