@@ -82,7 +82,7 @@ In the step we are going to write shell script for continuous deployment <br/>
 create file **deploy.sh** and copy below code in it and save it .
 ```
 #!/bin/bash
-ssh -o "StrictHostKeyChecking no" root@192.168.0.21 'if [ ! "$(/usr/local/bin/docker ps -q -f name=containerA)" ]; then
+sshpass -p"123" ssh -o "StrictHostKeyChecking no" root@192.168.0.21 'if [ ! "$(/usr/local/bin/docker ps -q -f name=containerA)" ]; then
     if [ "$(/usr/local/bin/docker ps -aq -f status=exited -f name=containerA)" ]; then
         # cleanup
         /usr/local/bin/docker rm containerA
@@ -99,8 +99,8 @@ if [ ! "$(/usr/local/bin/docker ps -q -f name=containerB)" ]; then
     /usr/local/bin/docker run -e WORDPRESS_DB_PASSWORD=root123 --name containerB --link containerA:mysql -p 8080:80 -v "/wordpress/html":/var/www/html -d wordpress
 fi
 '
-scp -o "StrictHostKeyChecking no" -r /wordpress/. root@192.168.0.21:/wordpress
-ssh -o "StrictHostKeyChecking no" root@192.168.0.21 '/usr/local/bin/docker restart containerA containerB'
+sshpass -p"123" scp -o "StrictHostKeyChecking no" -r /wordpress/. root@192.168.0.21:/wordpress
+sshpass -p"123" ssh -o "StrictHostKeyChecking no" root@192.168.0.21 '/usr/local/bin/docker restart containerA && sleep 20 && /usr/local/bin/docker restart containerB'
 ```
 
 ### Step 6 :- Write the dockerfile 
@@ -109,8 +109,10 @@ create file **dockerfile** and copy below code in it and save it .
 ```
 ARG CODE_VERSION=latest
 FROM ubuntu:${CODE_VERSION}
+ADD . /wordpress
 COPY /deploy.sh /
 RUN chmod u+x /deploy.sh
+RUN apt-get update && apt-get install ssh sshpass -y
 ENTRYPOINT ["/deploy.sh"]
 ```
 
