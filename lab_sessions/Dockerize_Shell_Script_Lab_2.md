@@ -13,7 +13,7 @@ Before we start you should understand the our environment for this lab session .
 - host 2 (production server) :-
 	- containerA - database server (mariadb image)
 	- containerB - web server (wordpress image)
-Creating two host with **play with docker**
+### Creating two host with play with docker
 1. Open **play with docker** 
 2. Click on **+ADD NEW INSTANCE**
 3. Host one is created 
@@ -22,13 +22,13 @@ Creating two host with **play with docker**
 6. Now you know the **IP** of both host 
 7. Go to the host two and execute the **passwd** command to change the password of root user and change password to **123** .
 
-### Step1 - Create new directory **wordpress** at our both host system 
+### Step 1 - Create new directory **wordpress** at our both host system 
 Start off by making a new directory where you wish to store the files for WordPress and MariaDB for example in your home directory.
 ```
 mkdir /wordpress && cd /wordpress
 ```
 
-### Step2 - Launch the container for database server (mariadb image) on host 1
+### Step 2 - Launch the container for database server (mariadb image) on host 1
 In this step we are going to launch the database container using mariadb image <br/>
 
 Search Mariadb image
@@ -57,7 +57,7 @@ List running docker processes
 docker ps
 ```
 
-### Step3 - Launch the container for web server (wordpress image) on host 1
+### Step 3 - Launch the container for web server (wordpress image) on host 1
 In this step we are going to launch the web server container using wordpress image <br/>
 
 Search Wordpress image
