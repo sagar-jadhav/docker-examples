@@ -23,11 +23,11 @@ ENTRYPOINT ["/test.sh"]
 ## Step 3 :- Build the image using dockerfile
 In this step we are going to build the image using dockerfile 
 ```
-docker build -f dockerfile -t Demo/LabOne:1 . 
+docker build -f dockerfile -t demo/labone:1 . 
 ```
 ## Step 4 :- Run the Container using our image which perform our particular task 
 In this step we are going to run the container using our image 
 ```
-docker run Demo/LabOne:1
-docker run -e FIRST=AKSHAY -e LAST=ITHAPE Demo/LabOne:1
+docker run demo/labone:1
+docker run -e FIRST=AKSHAY -e LAST=ITHAPE demo/labone:1
 ```
