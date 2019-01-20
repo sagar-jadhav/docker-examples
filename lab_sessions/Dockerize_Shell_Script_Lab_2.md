@@ -1,6 +1,7 @@
 # Dockerize Shell Script Lab 2
 In this lab session we are going to do continuous deployment using shell script for that we build one image using dockerfile and launch the container with that image .<br/>
 **NOTE :- Practice this lab session only with play with docker because the commands may be change as per your environment**
+
 ![play_with_dockeer](../images/labs_required/1.png)
 ### Prerequisite
 1. Basic understanding the linux environment
@@ -16,13 +17,16 @@ Before we start you should understand the our environment for this lab session .
 	- containerB - web server (wordpress image)
 ### Creating two node with play with docker
 1. Open **play with docker** 
+
 ![play_with_dockeer](../images/labs_required/1.png)
 2. Click on **+ADD NEW INSTANCE**i
+
 ![play_with_dockeer](../images/labs_required/2.png)
 3. Node one is created 
 4. Click on one more time **+ADD NEW INSTANCE**
 5. Node two is created 
 6. Now you know the **IP** of both node
+
 ![play_with_dockeer](../images/labs_required/3.png) 
 7. Go to the node two and execute the **passwd** command to change the password of root user and change password to **123** .
 
@@ -93,6 +97,7 @@ docker ps
 
 ### Step 4 :- Setup wordpress 
 In **play with docker** on up side open port are show in blue color click on that and setup wordpress . 
+
 ![play_with_dockeer](../images/labs_required/4.png)
 ![play_with_dockeer](../images/labs_required/5.png)
 ![play_with_dockeer](../images/labs_required/6.png)
@@ -156,6 +161,7 @@ docker run -v /wordpress:/wordpress demo/labtwo:1
 ``` 
 ### Step 9 :- Go to the node 2 check it our changes is reflected or not
 Go to node 2 in **play with docker** on up side open port are show in blue color click on that and check weather our changes is reflected or not .
+
 ![play_with_dockeer](../images/labs_required/9.png)
 ![play_with_dockeer](../images/labs_required/10.png)
 ![play_with_dockeer](../images/labs_required/11.png)
