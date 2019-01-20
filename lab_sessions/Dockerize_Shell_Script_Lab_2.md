@@ -123,11 +123,12 @@ fi
 sshpass -p"123" scp -o "StrictHostKeyChecking no" -r /wordpress/. root@192.168.0.21:/wordpress
 sshpass -p"123" ssh -o "StrictHostKeyChecking no" root@192.168.0.21 '/usr/local/bin/docker restart containerA && sleep 20 && /usr/local/bin/docker restart containerB'
 ```
+**NOTE :- IP must be change in your case so modify the IP in shell script** <br\>
 In above shell script we are going to use following commands
-1. sshpass - sshpass command is used to pass the password to ssh command 
-2. ssh - ssh is used to take the secure access of remote system 
-3. scp - scp is used to copy securly .
-4. sleep - sleep is command used for put our program in sleep mode .
+1. **sshpass** - sshpass command is used to pass the password to ssh command 
+2. **ssh** - ssh is used to take the secure access of remote system 
+3. **scp** - scp is used to copy securly .
+4. **sleep** - sleep is command used for put our program in sleep mode .
 
 ### Step 6 :- Write the dockerfile 
 In this step we are going to write dockerfile file to build our image <br/>
