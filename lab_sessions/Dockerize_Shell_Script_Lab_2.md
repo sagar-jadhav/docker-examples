@@ -16,11 +16,14 @@ Before we start you should understand the our environment for this lab session .
 	- containerB - web server (wordpress image)
 ### Creating two node with play with docker
 1. Open **play with docker** 
-2. Click on **+ADD NEW INSTANCE**
-3. Host one is created 
+![play_with_dockeer](../images/labs_required/1.png)
+2. Click on **+ADD NEW INSTANCE**i
+![play_with_dockeer](../images/labs_required/2.png)
+3. Node one is created 
 4. Click on one more time **+ADD NEW INSTANCE**
-5. Host two is created 
-6. Now you know the **IP** of both node 
+5. Node two is created 
+6. Now you know the **IP** of both node
+![play_with_dockeer](../images/labs_required/3.png) 
 7. Go to the node two and execute the **passwd** command to change the password of root user and change password to **123** .
 
 ### Step 1 - Create new directory **wordpress** at our both node system 
@@ -90,7 +93,11 @@ docker ps
 
 ### Step 4 :- Setup wordpress 
 In **play with docker** on up side open port are show in blue color click on that and setup wordpress . 
-
+![play_with_dockeer](../images/labs_required/4.png)
+![play_with_dockeer](../images/labs_required/5.png)
+![play_with_dockeer](../images/labs_required/6.png)
+![play_with_dockeer](../images/labs_required/7.png)
+![play_with_dockeer](../images/labs_required/8.png)
 ### Step 5 :- Write the shell script for continuous deployment
 In the step we are going to write shell script for continuous deployment <br/>
 create file **deploy.sh** and copy below code in it and save it .
@@ -148,3 +155,6 @@ docker run -v /wordpress:/wordpress demo/labtwo:1
 ``` 
 ### Step 9 :- Go to the node 2 check it our changes is reflected or not
 Go to node 2 in **play with docker** on up side open port are show in blue color click on that and check weather our changes is reflected or not .
+![play_with_dockeer](../images/labs_required/9.png)
+![play_with_dockeer](../images/labs_required/10.png)
+![play_with_dockeer](../images/labs_required/11.png)
