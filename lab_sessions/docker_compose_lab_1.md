@@ -47,9 +47,18 @@ services:
     links:
       - wordpressdb:mysql
 ```
+**version**
+**services**
+**build**
+**context**
+**dockerfile**
+**volumes**
 
 ### Step 5 - Run the docker compose 
+**docker-compose up** command is use for launch our containers
 ```
 docker-compose up
 ```
 ### Step 6 - Open the website in browser
+In this step we are to open our wordpress website on browser for that in up side on **play with docker** open port display in **blue color** click on that .
+![play_with_dockeer](../images/labs_required/12.png)
