@@ -47,12 +47,6 @@ services:
     links:
       - wordpressdb:mysql
 ```
-**version**
-**services**
-**build**
-**context**
-**dockerfile**
-**volumes**
 
 ### Step 5 - Run the docker compose 
 **docker-compose up** command is use for launch our containers
