@@ -16,3 +16,4 @@ Docker Tutorials project contains Session PPT's & Lab sessions of Docker Series 
   2. [Wordpress setup with multiple containers](lab_sessions/Deploy_Wordpress_With_Multiple_Container.md)
   3. [Dockerize Shell Script (Lab-1)](lab_sessions/Dockerize_Shell_Script_Lab_1.md)
   4. [Dockerize Shell Script (Lab-2)](lab_sessions/Dockerize_Shell_Script_Lab_2.md)
+  5. [Docker Compose (Lab-1)](lab_sessions/docker_compose_lab_1.md)
