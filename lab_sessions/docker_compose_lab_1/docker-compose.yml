@@ -1,0 +1,18 @@
+version: '3'
+services:
+  wordpressdb:
+    build:
+      context: .
+      dockerfile: dockerfile1
+    volumes:
+      - /wordpress/database:/var/lib/mysql
+  wordpress:
+    build:
+      context: .
+      dockerfile: dockerfile2
+    ports:
+      - "8080:80"
+    volumes:
+      - /wordpress/html:/var/www/html
+    links:
+      - wordpressdb:mysql
