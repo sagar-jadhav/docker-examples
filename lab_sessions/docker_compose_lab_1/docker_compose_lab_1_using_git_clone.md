@@ -19,7 +19,7 @@ To change the directory we use **cd** command <br/>
 To see the contents of that directory we use **ls** command <br/>
 To see the contents of that file we use **cat** command 
 ```
-cd lab_sessions/docker_compose_lab_1/
+cd docker-tutorials/lab_sessions/docker_compose_lab_1/
 ls
 cat dockerfile1
 cat dockerfile2
