@@ -17,3 +17,4 @@ Docker Tutorials project contains Session PPT's & Lab sessions of Docker Series 
   3. [Dockerize Shell Script (Lab-1)](lab_sessions/Dockerize_Shell_Script_Lab_1.md)
   4. [Dockerize Shell Script (Lab-2)](lab_sessions/Dockerize_Shell_Script_Lab_2.md)
   5. [Docker Compose (Lab-1)](lab_sessions/docker_compose_lab_1.md)
+  6. [Docker compose using git clone (Lab-1)](lab_sessions/docker_compose_lab_1/docker_compose_lab_1_using_git_clone.md)
