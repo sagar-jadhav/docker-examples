@@ -34,4 +34,4 @@ docker-compose up
 ### Step 5 - Open the website in browser
 In this step we are to open our wordpress website on browser for that in up side on **play with docker** open port display in **blue color** click on that .
 
-![play_with_docker](../images/labs_required/13.png)
+![play_with_docker](../../images/labs_required/13.png)
