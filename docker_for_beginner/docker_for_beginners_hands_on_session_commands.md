@@ -1,3 +1,19 @@
+## Steps to set up Docker Lab
+
+It's a prerequisite for the Hands On Session
+
+**Create a Docker Hub id**
+Visit https://hub.docker.com/signup - use your personal email
+
+**Verify Email Address**
+You will receive an email to confirm the Docker Hub account, once confirmed, your account is created with Docker Hub.
+
+**Accessing Docker Lab** 
+This is a free online lab environment for Docker, you can access it using the Docker Hub account create using the above steps, visit https://labs.play-with-docker.com/ and click on Login. This will open up a pop-up for login, ensure you don’t have pop-up blocker enabled in your browser. Once logged in with Docker, you should see the start button, click on Start
+
+**Add a Docker Instance**
+Click on ‘ADD NEW INSTANCE’ label under Instance in the left hand side navbar. This will spawn up a docker instance for running lab tasks. Congratulations ! You have successfully setup your lab. You can click on close session if you want to close the lab.
+
 ## 1.Run your first container
 
 1. Run a container
