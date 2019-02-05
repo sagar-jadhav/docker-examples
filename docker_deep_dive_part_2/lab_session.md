@@ -14,7 +14,7 @@ This is a free online lab environment for Docker, you can access it using the Do
 ### Add a Docker Instance
 Click on ‘ADD NEW INSTANCE’ label under Instance in the left hand side navbar. This will spawn up a docker instance for running lab tasks. Congratulations ! You have successfully setup your lab. You can click on close session if you want to close the lab.
 
-## Lab 1 Setting up Docker Swarm Master & Worker Nodes
+## Lab 1 - Setting up Docker Swarm Master & Worker Nodes
 
 In this lab session we will learn How to set up the Docker Swarm Master & Worker Nodes.
 
@@ -44,5 +44,23 @@ docker swarm join --token SWMTKN-1-4toxzxmtqx8ddhcjwbdf47sygtgakg38qu0v6u1ztwhew
 - Execute **docker info**
 - Go to Master Node and execute **docker node ls**
 
+## Lab 2 - Deploying a Service 
+
+In this lab session we will learn How to deploy a Service in Swarm cluster.
+
+- Go to Master Node
+- Execute the following command
+```
+docker service create --replicas 1 --name serviceone alpine top
+
+--replicas = Number of instance
+--name = Name of the service
+alpine = Name of docker image
+top = Command to execute on start
+```
+- Execute **docker service ls**
+- Execute **docker service ps serviceone**
+- Execute **docker ps**
+- Execute **docker service logs serviceone**
   
   
