@@ -44,7 +44,7 @@ docker swarm join --token SWMTKN-1-4toxzxmtqx8ddhcjwbdf47sygtgakg38qu0v6u1ztwhew
 - Execute **docker info**
 - Go to Master Node and execute **docker node ls**
 
-## Lab 2 - Deploying a Service 
+## Lab 2 - Deploying & Inspecting a Service 
 
 In this lab session we will learn How to deploy a Service in Swarm cluster.
 
@@ -62,5 +62,6 @@ top = Command to execute on start
 - Execute **docker service ps serviceone**
 - Execute **docker ps**
 - Execute **docker service logs serviceone**
+- Execute **docker inspect service --pretty serviceone**
   
   
