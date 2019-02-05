@@ -1,0 +1,48 @@
+# Docker Swarm Lab Sessions
+
+## Prerequisite
+
+### Create a Docker Hub id
+Visit https://hub.docker.com/signup - use your personal email
+
+### Verify Email Address
+You will receive an email to confirm the Docker Hub account, once confirmed, your account is created with Docker Hub.
+
+### Accessing Docker Lab
+This is a free online lab environment for Docker, you can access it using the Docker Hub account create using the above steps, visit https://labs.play-with-docker.com/ and click on Login. This will open up a pop-up for login, ensure you don’t have pop-up blocker enabled in your browser. Once logged in with Docker, you should see the start button, click on Start
+
+### Add a Docker Instance
+Click on ‘ADD NEW INSTANCE’ label under Instance in the left hand side navbar. This will spawn up a docker instance for running lab tasks. Congratulations ! You have successfully setup your lab. You can click on close session if you want to close the lab.
+
+## Lab 1 Setting up Docker Swarm Master & Worker Nodes
+
+In this lab session we will learn How to set up the Docker Swarm Master & Worker Nodes.
+
+### Setting up Master Node
+
+- Add new instance
+- Make a note of IP mentioned in the top
+- Execute following command. In this command in place of MANAGER-IP use the IP address noted in above step
+```
+docker swarm init --advertise-addr <MANAGER-IP>
+```
+- Copy the command mentioned under **To add a worker to this swarm, run the following command** in output of execution of above command. Find below the sample output:
+```
+docker swarm join --token SWMTKN-1-4toxzxmtqx8ddhcjwbdf47sygtgakg38qu0v6u1ztwhe
+w658b9-4fiebjgjh72ge3eoo1mgpowpu 192.168.0.48:2377
+```
+- Execute **docker info**
+- Execute **docker node ls**
+
+### Setting up Worker Node
+
+- Add new instance
+- Execute the command noted in previous steps for e.g. 
+```
+docker swarm join --token SWMTKN-1-4toxzxmtqx8ddhcjwbdf47sygtgakg38qu0v6u1ztwhew658b9-4fiebjgjh72ge3eoo1mgpowpu 192.168.0.48:2377
+```
+- Execute **docker info**
+- Go to Master Node and execute **docker node ls**
+
+  
+  
