@@ -88,7 +88,7 @@ docker service scale servicethree=5
   
 ## Lab 4: Networking
 
-In this lab session we will learn how to publish the port of Service & How to connect the Services with Overlay Network.
+### Publishing Port
 
 - Go to Master Node
 - Execute the following commands to publish the port of Service
@@ -101,5 +101,32 @@ curl http://localhost:8080
 - At the top of UI near to the IP click on 8080. It will open the Tomcat Home Page running inside the docker.
 - Go to Worker Node and execute the following: http://localhost:8080 
 
+### Connecting to an Overlay Network
+
+- Go to Master Node
+- Execute the following commands:
+```
+docker network ls
+docker network create -d overlay my-net
+docker network ls
+docker service create --name serverone --replicas 1 --network my-net tomcat
+docker service create --name servertwo --replicas 1 --network my-net tomcat
+docker inspect serverone
+docker inspect servertwo
+docker ps 
+docker exec -it <CONTAINER_ID> /bin/bash
+ping servertwo
+curl http://servertwo:8080
+exit
+```
+- Go to Worker Node
+- Execute the following commands:
+```
+docker ps 
+docker exec -it <CONTAINER_ID> /bin/bash
+ping serverone
+curl http://serverone:8080
+exit
+```
   
   
