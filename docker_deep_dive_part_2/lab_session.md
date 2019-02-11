@@ -63,5 +63,27 @@ top = Command to execute on start
 - Execute **docker ps**
 - Execute **docker service logs serviceone**
 - Execute **docker inspect service --pretty serviceone**
+
+## Lab 3 - Scaling a Service
+
+In this lab session we will learn how to scale a service with different options & also how to create a global service.
+
+- Go to Master Node
+- Execute the following commands to scale a service
+```
+docker service create --replicas 1 --name servicetwo alpine top
+docker service ls
+docker service scale servicetwo=2
+docker service ls
+docker service ps servicetwo
+docker service update --replicas 3 servicetwo
+docker service ps servicetwo
+```
+- Execute the following commands to create a Global Service
+```
+docker service create --mode global --name servicethree alpine top
+docker service ps servicethree
+docker service scale servicethree=5
+```
   
   
