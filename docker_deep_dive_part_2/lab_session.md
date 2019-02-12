@@ -128,5 +128,47 @@ ping serverone
 curl http://serverone:8080
 exit
 ```
-  
+## Lab 5: Storage
+
+In this session we will learn how to mount volumes of type mount & bind in the Service. If the driver used is local then volumes are created on each node wherever the replica is running. Replication among the nodes is not managed by Docker.
+
+### Mount
+
+- Go to Master Node
+- Execute the following commands:
+```
+docker volume create my-volume
+docker volume ls
+docker service create --name servicefive --replicas 2 --mount src=my-volume,dst=/etc/nginx/ nginx
+docker inspect my-volume
+
+# Go to volume dir
+cd <VOLUME PATH>
+ls
+echo "Test" > test.log
+```
+- Go to Worker Node
+- Execute the following commands:
+```
+docker inspect my-volume
+
+# Go to volume dir
+cd <VOLUME PATH>
+ls
+```
+### Bind
+
+- Go to Master Node
+- Execute the following commands:
+```
+docker service create --name servicesix --replicas 1 --mount type=bind,src=/tmp,dst=/var/www/ nginx
+cd /tmp
+echo "Hello" > index.html
+ls
+docker ps
+docker exec -it <CONTAINER_ID> /bin/bash
+cd /var/www
+ls
+```
+
   
