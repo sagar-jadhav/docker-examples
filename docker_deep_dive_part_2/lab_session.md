@@ -1,4 +1,4 @@
-# Docker Swarm Lab Sessions
+# Docker Swarm
 
 ## Prerequisite
 
