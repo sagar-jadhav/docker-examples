@@ -10,6 +10,9 @@ Docker Tutorials project contains Session PPT's & Lab sessions of Docker Series 
     - [Lab Session for Docker File](docker_deep_dive_part_1/dockerfile_hands_on_session.md)
     - [Lab Session for Docker Networking](docker_deep_dive_part_1/docker_networking_hands_on_session.md)
     - [Lab Session for Docker Volumes](docker_deep_dive_part_1/docker_volumes_hands_on_session.md)
+  - [Docker deep dive (Part-2)](https://www.meetup.com/Pune-Developers-Community/events/258215611/)
+    - [Session PPT - Docker Swarm](docker_deep_dive_part_2/docker_deep_dive_part_2.pdf)
+    - [Lab Session for Docker Swarm](docker_deep_dive_part_2/docker_swarm_lab_session.md)  
   
 ## Lab sessions
   1. [Building docker image from running container](lab_sessions/build_docker_image_from_a_running_container.md)
