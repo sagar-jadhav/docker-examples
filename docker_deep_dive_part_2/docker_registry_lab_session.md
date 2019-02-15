@@ -1,12 +1,13 @@
 # Docker Registry
 
 ## Prerequisite
-- Must have Docker installed on the host. 
-- Good to have have two machines. We can either use two VMs or two instances from a cloud provider (AWS) in same VLAN. This set up would be more suitable to run through the lab. 
 
 ### Spin-up Docker Instances
+
+- Good to have have two machines. We can either use two VMs or two instances from a cloud provider (AWS) in same VLAN. This set up would be more suitable to run through the lab. 
 - Log into the two instances and ensure that Docker is installed. 
-- Execute **docker info** to ensure that the user has required permissions. If there is an error, we can switch to **sudo** user and continue.
+- Execute **docker info** command to ensure that the user has required permissions. 
+- If there is an error, we can switch to **sudo** user and continue.
 With that set, congratulations! We have successfully setup our lab.
 
 ## Lab 1 - Running the first Registry Server
@@ -19,7 +20,7 @@ In this lab session we will run our very first Registry Server based on the **re
 - Make a note of IP address of this host. We can get the IP, using **ifconfig** command.
 - Execute following command
 ```
-docker run -it -p 5000:5000 --name registry registry:2
+docker run -it -p 5000:5000 --name registry registry:2.7
 ```
 
 ### Interacting with the Registry Server
@@ -89,6 +90,7 @@ docker push <REGISTRY-HOST-IP>:5000/my-busybox
   ]
 }
 ```
+
 ## Lab 3 - Pulling the image
 
 In this lab session we will learn how to add our registry to different Docker hosts and pull an image.
@@ -123,6 +125,41 @@ nano /etc/docker/daemon.json
 docker pull <REGISTRY-HOST-IP>:5000/my-busybox
 ```
 
+## Lab 4 - Preserving the Registry Data
+
+In this lab session, we will learn about preserving the registry data even after the server is stopped. 
+
+### Stop the Registry server
+
+- Stop and remove the registry server using the following commands
+```
+docker container stop registry
+docker container rm registry
+```
+- Restart the registry server using the following command
+```
+docker run -d -p 5000:5000 --name registry registry:2.7
+```
+- Go to **http://REGISTRY-HOST-IP:5000/v2/_catalog/** and observe that we have lost the repositories
+
+### Preserving data with Volumes
+
+- Stop and remove the registry with above commands
+- Restart the registry server and add a volume with the following command
+```
+docker run -d -p 5000:5000 -v registry-data:/var/lib/registry --name registry registry:2.7
+```
+- Push the image again with the above used commands
+
+### Testing 
+
+- Stop and remove the registry with above commands
+- Execute the command **docker volume ls** to check if volume is not deleted
+- Restart the registry server and add the same volume with the following command
+```
+docker run -d -p 5000:5000 -v registry-data:/var/lib/registry --name registry registry:2.7
+```
+- Go to **http://REGISTRY-HOST-IP:5000/v2/_catalog/** and observe that our repositories are still there.
 
 
   
