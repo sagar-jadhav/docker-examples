@@ -144,7 +144,7 @@ docker run -d -p 5000:5000 --name registry registry:2.7
 
 ### Preserving data with Volumes
 
-- Stop and remove the registry with above commands
+- Stop and remove the registry server with above commands
 - Restart the registry server and add a volume with the following command
 ```
 docker run -d -p 5000:5000 -v registry-data:/var/lib/registry --name registry registry:2.7
@@ -153,7 +153,7 @@ docker run -d -p 5000:5000 -v registry-data:/var/lib/registry --name registry re
 
 ### Testing 
 
-- Stop and remove the registry with above commands
+- Stop and remove the registry server with above commands
 - Execute the command **docker volume ls** to check if volume is not deleted
 - Restart the registry server and add the same volume with the following command
 ```
@@ -161,5 +161,35 @@ docker run -d -p 5000:5000 -v registry-data:/var/lib/registry --name registry re
 ```
 - Go to **http://REGISTRY-HOST-IP:5000/v2/_catalog/** and observe that our repositories are still there.
 
+## Lab 5 - Securing our Registry with Basic Auth
 
-  
+In this lab session we will learn about how we can secure our registry using basic authentication.
+
+### Build new Registry Image
+
+- Stop and remove the registry server with above commands
+- Creata a new Dockerfile with **nano Dockerfile** command and the following commands to it:
+```
+FROM registry:2.7
+
+# store the username and password in /auth/htpasswd file
+RUN mkdir /auth && htpasswd -bnB admin admin > /auth/htpasswd
+
+# set the environment variables for registry
+ENV REGISTRY_AUTH htpasswd
+ENV REGISTRY_AUTH_HTPASSWD_REALM basic-realm
+ENV REGISTRY_AUTH_HTPASSWD_PATH /auth/htpasswd
+
+# expose port for registry
+EXPOSE 5000
+```
+- Build an image using the following command
+```
+docker build -t secure-registry .
+```
+- Start the registry server with new image, using the following command
+```
+docker run -d -p 5000:5000 -v registry-data:/var/lib/registry --name registry secure-registry
+```
+- Go to **http://REGISTRY-HOST-IP:5000/v2/_catalog/** and observe that now we are prompted for username and password.
+
