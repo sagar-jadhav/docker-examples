@@ -1,4 +1,6 @@
 # Docker Registry
+<br>
+
 
 ## Prerequisite
 
@@ -7,6 +9,8 @@
 - Execute **docker info** command to ensure that the user has required permissions. 
 - If there is an error, we can switch to **sudo** user and continue.
 With that set, congratulations! We have successfully setup our lab.
+<br>
+
 
 ## Lab 1 - Running the first Registry Server
 
@@ -32,6 +36,8 @@ docker run -it -p 5000:5000 --name registry registry:2.7
   ]
 }
 ```
+<br>
+
 
 ## Lab 2 - Push a Docker Image to Registry 
 
@@ -88,6 +94,8 @@ docker push <REGISTRY-HOST-IP>:5000/my-busybox
   ]
 }
 ```
+<br>
+
 
 ## Lab 3 - Pulling the image
 
@@ -123,6 +131,8 @@ nano /etc/docker/daemon.json
 ```
 docker pull <REGISTRY-HOST-IP>:5000/my-busybox
 ```
+<br>
+
 
 ## Lab 4 - Preserving the Registry Data
 
@@ -159,6 +169,8 @@ docker run -d -p 5000:5000 -v registry-data:/var/lib/registry --name registry re
 docker run -d -p 5000:5000 -v registry-data:/var/lib/registry --name registry registry:2.7
 ```
 - Go to **http://REGISTRY-HOST-IP:5000/v2/_catalog/** and observe that our repositories are still there.
+<br>
+
 
 ## Lab 5 - Securing our Registry with Basic Auth
 
@@ -216,6 +228,8 @@ docker login localhost:5000
 docker login localhost:5000
 ```
 - Retry to pull the image now
+<br>
+
 
 ## Lab 6 - Adding a User Interface 
 
