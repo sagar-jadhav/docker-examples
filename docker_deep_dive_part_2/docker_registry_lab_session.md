@@ -2,8 +2,6 @@
 
 ## Prerequisite
 
-### Spin-up Docker Instances
-
 - Good to have have two machines. We can either use two VMs or two instances from a cloud provider (AWS) in same VLAN. This set up would be more suitable to run through the lab. 
 - Log into the two instances and ensure that Docker is installed. 
 - Execute **docker info** command to ensure that the user has required permissions. 
@@ -101,6 +99,7 @@ In this lab session we will learn how to add our registry to different Docker ho
 - Execute the following command to pull the image we just pushed to our registry
 ```
 docker pull <REGISTRY-HOST-IP>:5000/my-busybox
+
 Using default tag: latest
 Error response from daemon: Get https://13.233.122.144:5000/v2/: http: server gave HTTP response to HTTPS client
 ```
@@ -192,4 +191,29 @@ docker build -t secure-registry .
 docker run -d -p 5000:5000 -v registry-data:/var/lib/registry --name registry secure-registry
 ```
 - Go to **http://REGISTRY-HOST-IP:5000/v2/_catalog/** and observe that now we are prompted for username and password.
+
+### Push an Image
+
+- Let's try to push the image we had built earlier, and this time we will fail
+```
+docker push localhost:5000/my-busybox
+
+The push refers to repository [localhost:5000/my-busybox]
+adab5d09ba79: Preparing 
+no basic auth credentials
+```
+- Login to the registry using the following command, and provide username and password as prompted
+```
+docker login localhost:5000
+```
+- Retry to push the image now
+
+### Pull an Image
+
+- Let's try to pull an image on second host, and we will fail here as well
+- Login to the registry using the following command, and provide username and password as prompted
+```
+docker login localhost:5000
+```
+- Retry to pull the image now
 
