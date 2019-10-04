@@ -16,8 +16,9 @@ Docker Tutorials project contains Session PPT's & Lab sessions of Docker Series 
   
 ## Lab sessions
   1. [Building docker image from running container](lab_sessions/build_docker_image_from_a_running_container.md)
-  2. [Wordpress setup with multiple containers](lab_sessions/Deploy_Wordpress_With_Multiple_Container.md)
-  3. [Dockerize Shell Script (Lab-1)](lab_sessions/Dockerize_Shell_Script_Lab_1.md)
-  4. [Dockerize Shell Script (Lab-2)](lab_sessions/Dockerize_Shell_Script_Lab_2.md)
-  5. [Docker Compose (Lab-1)](lab_sessions/docker_compose_lab_1.md)
-  6. [Docker Composer (Lab-2) using pre build files (dockerfile & docker-compose.yml)](lab_sessions/docker_compose_lab_1/docker_compose_lab_2_using_git_clone.md)
+  2. [Using Builder images to create smaller Final images ](lab_sessions/Builder_images_to_create_smaller_images.md)
+  3. [Wordpress setup with multiple containers](lab_sessions/Deploy_Wordpress_With_Multiple_Container.md)
+  4. [Dockerize Shell Script (Lab-1)](lab_sessions/Dockerize_Shell_Script_Lab_1.md)
+  5. [Dockerize Shell Script (Lab-2)](lab_sessions/Dockerize_Shell_Script_Lab_2.md)
+  6. [Docker Compose (Lab-1)](lab_sessions/docker_compose_lab_1.md)
+  7. [Docker Composer (Lab-2) using pre build files (dockerfile & docker-compose.yml)](lab_sessions/docker_compose_lab_1/docker_compose_lab_2_using_git_clone.md)
